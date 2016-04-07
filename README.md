@@ -1,5 +1,7 @@
 # homebrew-shell
 
+[![Build Status](https://travis-ci.org/kaos/homebrew-shell.svg?branch=master)](https://travis-ci.org/kaos/homebrew-shell)
+
 Brew tap with shell stuff
 
 # Install
