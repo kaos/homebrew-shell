@@ -8,6 +8,17 @@ Brew tap with shell stuff
 
     brew tap kaos/shell
 
+## Bleeding edge
+
+Are releases coming too slow for you. Want to use new features not in
+any release?
+
+To install the latest and greatest (and possibly buggiest/most fixed)
+version, use the `--HEAD` option to `brew`.
+
+    brew install --HEAD <formula>
+
+
 # Featured Formulae
 
 ## bats libs

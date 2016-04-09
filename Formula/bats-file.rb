@@ -1,6 +1,7 @@
 class BatsFile < Formula
   desc "Common filesystem assertions for Bats"
   homepage "https://github.com/ztombol/bats-file"
+  head "https://github.com/ztombol/bats-file.git"
   url "https://github.com/ztombol/bats-file/archive/v0.1.0.tar.gz"
   sha256 "3f5afee0d9f77ff2bf255c43904fc8c23350d858c0e8a399c714c67f42181842"
   depends_on "bats-support"
