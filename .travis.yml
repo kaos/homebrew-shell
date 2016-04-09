@@ -21,13 +21,13 @@ before_install:
   - git -C $(brew --repo) clean -qxdff
   - brew update
   - mkdir -p $(brew --repo)/Library/Taps/kaos
-  - ln -s $PWD $(brew --repo)/Library/Taps/kaos/homebrew-shell
-  - cd $(brew --repo)/Library/Taps/kaos/homebrew-shell
-  - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/kaos/homebrew-shell"
+  - ln -s $PWD $(brew --repo)/Library/Taps/${TRAVIS_REPO_SLUG}
+  - cd $(brew --repo)/Library/Taps/${TRAVIS_REPO_SLUG}
+  - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/${TRAVIS_REPO_SLUG}"
   - env | grep TRAVIS_
 
 script:
-  - brew test-bot
+  - brew test-bot --tap=kaos/shell
 
 notifications:
   email:
