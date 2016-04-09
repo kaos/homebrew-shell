@@ -18,14 +18,14 @@ class BatsAssert < Formula
 
     To load the bats-assert lib in your bats test:
 
-        load '/usr/local/lib/bats-support/load.bash'
-        load '/usr/local/lib/bats-assert/load.bash'
+        load '#{HOMEBREW_PREFIX}/lib/bats-support/load.bash'
+        load '#{HOMEBREW_PREFIX}/lib/bats-assert/load.bash'
 
     EOS
   end
 
   test do
-    ENV["TEST_DEPS_DIR"] = "/usr/local/lib"
+    ENV["TEST_DEPS_DIR"] = "#{HOMEBREW_PREFIX}/lib"
     system "bats", "#{lib}/bats-assert/test"
   end
 end

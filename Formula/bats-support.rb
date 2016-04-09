@@ -11,7 +11,7 @@ class BatsSupport < Formula
     mv "src", "bats-support/"
     mv "test", "bats-support/"
     lib.install "bats-support"
-    ohai "Use `load '/usr/local/lib/bats-support/load.bash'` in your bats test to load this library."
+    ohai "Use `load '#{HOMEBREW_PREFIX}/lib/bats-support/load.bash'` in your bats test to load this library."
   end
 
   test do
