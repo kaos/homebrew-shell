@@ -21,26 +21,33 @@ version, use the `--HEAD` option to `brew`.
 
 # Featured Formulae
 
-## bats libs
+## Bats libs
 
 [Bats](https://github.com/sstephenson/bats) is a
 [TAP](http://testanything.org/)-compliant testing framework for
 Bash. It provides a simple way to verify that the UNIX programs you
 write behave as expected.
 
-### [bats helper library](https://github.com/ztombol/bats-docs) by
-[@ztombol](https://github.com/ztombol):
+### Bats helper library
+
+[Bats helper library](https://github.com/ztombol/bats-docs) by
+[@ztombol](https://github.com/ztombol) is a set of common functions to
+use in your bats tests:
 
     brew install bats-assert
     brew install bats-file
 
-### [bats-mock](https://github.com/jasonkarns/bats-mock) by
+### Bats mock
+
+[bats-mock](https://github.com/jasonkarns/bats-mock) by
 [@jasonkarns](https://github.com/jasonkarns)
 
     brew install bats-mock
 
 
-## TickTick (JSON)
+## JSON
+
+### TickTick
 
 Put JSON in your bash scripts with
 [TickTick](https://github.com/kristopolous/TickTick) by
