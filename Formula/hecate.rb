@@ -8,7 +8,9 @@ class Hecate < Formula
   head "https://github.com/evanmiller/hecate.git"
 
   bottle do
+    root_url "https://dl.bintray.com/kaos/bottles"
     cellar :any_skip_relocation
+    sha256 "406602e0c14297190e50d1c0633726b6a16d53bdee8230f5046fd73fda38d53d" => :yosemite
   end
 
   depends_on "go" => :build
