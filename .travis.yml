@@ -27,10 +27,7 @@ before_install:
   - env | grep TRAVIS_
 
 script:
-  - brew test-bot
-# --tap=kaos/shell
-# don't test our tap until
-# https://github.com/Homebrew/brew/issues/54) have been addressed.
+  - brew test-bot --tap=kaos/shell
 
 notifications:
   email:
