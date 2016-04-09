@@ -1,5 +1,5 @@
 class BatsMock < Formula
-  desc "Mocking/stubbing library for BATS (Bash Automated Testing System)"
+  desc "Mocking/stubbing library for Bats"
   homepage "https://github.com/jasonkarns/bats-mock"
   url "https://github.com/jasonkarns/bats-mock/archive/v1.0.1.tar.gz"
   sha256 "af89a0861e2a84edfcc39c72ba5da5b9201a5bc5e0e621ee2b9ef10c8adb0260"
