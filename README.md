@@ -55,3 +55,12 @@ Put JSON in your bash scripts with
 
     brew install ticktick
 
+
+## Editors
+
+### Hecate
+
+The [hex editor](https://github.com/evanmiller/hecate) from hell,
+according to [@evanmiller](https://github.com/evanmiller)
+
+    brew install hecate
