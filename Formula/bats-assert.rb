@@ -11,7 +11,17 @@ class BatsAssert < Formula
     mv "src", "bats-assert/"
     mv "test", "bats-assert/"
     lib.install "bats-assert"
-    ohai "Use `load '/usr/local/lib/bats-assert/load'` in your bats test to load this library."
+  end
+
+  def caveats
+    <<-EOS.undent
+
+    To load the bats-assert lib in your bats test:
+
+        load '/usr/local/lib/bats-support/load.bash'
+        load '/usr/local/lib/bats-assert/load.bash'
+
+    EOS
   end
 
   test do

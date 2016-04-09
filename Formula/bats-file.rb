@@ -11,7 +11,17 @@ class BatsFile < Formula
     mv "src", "bats-file/"
     mv "test", "bats-file/"
     lib.install "bats-file"
-    ohai "Use `load '/usr/local/lib/bats-file/load'` in your bats test to load this library."
+  end
+
+  def caveats
+    <<-EOS.undent
+
+    To load the bats-file lib in your bats test:
+
+        load '/usr/local/lib/bats-support/load.bash'
+        load '/usr/local/lib/bats-file/load.bash'
+
+    EOS
   end
 
   test do
