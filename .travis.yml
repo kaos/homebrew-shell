@@ -15,9 +15,11 @@ matrix:
       rvm: system
 
 before_install:
+  - if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
   - sudo chown -R $USER $(brew --repo)
   - git -C $(brew --repo) reset --hard origin/master
   - git -C $(brew --repo) clean -qxdff
+  - brew update
   - mkdir -p $(brew --repo)/Library/Taps/kaos
   - ln -s $PWD $(brew --repo)/Library/Taps/${TRAVIS_REPO_SLUG}
   - cd $(brew --repo)/Library/Taps/${TRAVIS_REPO_SLUG}
@@ -25,7 +27,7 @@ before_install:
   - env | grep TRAVIS_
 
 script:
-  - brew audit --strict
+  - brew test-bot --tap=kaos/shell
 
 notifications:
   email:
