@@ -12,8 +12,14 @@ Brew tap with shell stuff
 
 ## bats libs
 
-The [bats helper library](https://github.com/ztombol/bats-docs) from @ztombol is here:
+### [bats helper library](https://github.com/ztombol/bats-docs) by
+[@ztombol](https://github.com/ztombol):
 
     brew install bats-assert
     brew install bats-file
+
+### [bats-mock](https://github.com/jasonkarns/bats-mock) from
+[@jasonkarns](https://github.com/jasonkarns)
+
+    brew install bats-mock
 
