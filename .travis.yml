@@ -1,20 +1,18 @@
 language: objective-c
 matrix:
   include:
-    - env: OSX=10.11
+    - env: OSX=10.11 HOMEBREW_NO_GITHUB_API=1
       os: osx
       osx_image: osx10.11
       rvm: system
-    - env: OSX=10.10
+    - env: OSX=10.10 HOMEBREW_NO_GITHUB_API=1
       os: osx
       osx_image: xcode7
       rvm: system
-    - env: OSX=10.9
+    - env: OSX=10.9 HOMEBREW_NO_GITHUB_API=1
       os: osx
       osx_image: beta-xcode6.2
       rvm: system
-env:
-  - HOMEBREW_NO_GITHUB_API=1
 
 before_install:
   - if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
