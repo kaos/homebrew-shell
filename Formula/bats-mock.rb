@@ -14,7 +14,7 @@ class BatsMock < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
 
     To load the bats-mock lib in your bats test:
 
