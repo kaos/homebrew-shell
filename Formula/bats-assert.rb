@@ -15,7 +15,7 @@ class BatsAssert < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
 
     To load the bats-assert lib in your bats test:
 
