@@ -15,7 +15,7 @@ class BatsFile < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
 
     To load the bats-file lib in your bats test:
 
