@@ -16,7 +16,7 @@ class BatsMock < Formula
   def caveats
     <<~EOS
 
-    To load the bats-mock lib in your bats test:
+      To load the bats-mock lib in your bats test:
 
         load '#{HOMEBREW_PREFIX}/lib/bats-mock/stub.bash'
 
