@@ -4,7 +4,7 @@ class BatsSupport < Formula
   url "https://github.com/ztombol/bats-support/archive/v0.2.0.tar.gz"
   sha256 "9bfa93d2db046e375e31e4c6cbbe834b015c695862c2dca1b46b71401de1038d"
   head "https://github.com/ztombol/bats-support.git"
-  depends_on "bats"
+  depends_on "bats-core"
 
   def install
     mkdir "bats-support"
