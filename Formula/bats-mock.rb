@@ -14,9 +14,9 @@ class BatsMock < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
 
-    To load the bats-mock lib in your bats test:
+      To load the bats-mock lib in your bats test:
 
         load '#{HOMEBREW_PREFIX}/lib/bats-mock/stub.bash'
 
@@ -24,7 +24,7 @@ class BatsMock < Formula
   end
 
   test do
-    tests = <<-EOS.undent
+    tests = <<~EOS
       load '#{HOMEBREW_PREFIX}/lib/bats-mock/stub.bash'
       @test "uname -s" {
         stub uname '-s : echo Stubbed'
