@@ -1,8 +1,8 @@
 class BatsSupport < Formula
   desc "Supporting library for Bats test helpers"
   homepage "https://github.com/ztombol/bats-support"
-  url "https://github.com/ztombol/bats-support/archive/v0.2.0.tar.gz"
-  sha256 "9bfa93d2db046e375e31e4c6cbbe834b015c695862c2dca1b46b71401de1038d"
+  url "https://github.com/ztombol/bats-support/archive/v0.3.0.tar.gz"
+  sha256 "7815237aafeb42ddcc1b8c698fc5808026d33317d8701d5ec2396e9634e2918f"
   head "https://github.com/ztombol/bats-support.git"
   depends_on "bats-core"
 
