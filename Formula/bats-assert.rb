@@ -17,10 +17,10 @@ class BatsAssert < Formula
   def caveats
     <<~EOS
 
-    To load the bats-assert lib in your bats test:
+      To load the bats-assert lib in your bats test:
 
-        load '#{HOMEBREW_PREFIX}/lib/bats-support/load.bash'
-        load '#{HOMEBREW_PREFIX}/lib/bats-assert/load.bash'
+          load '#{HOMEBREW_PREFIX}/lib/bats-support/load.bash'
+          load '#{HOMEBREW_PREFIX}/lib/bats-assert/load.bash'
 
     EOS
   end
