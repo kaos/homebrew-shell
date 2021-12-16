@@ -11,7 +11,7 @@ class Ticktick < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
 
     Use ticktick by sourcing it right at the top of your bash script:
 

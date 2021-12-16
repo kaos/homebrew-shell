@@ -1,0 +1,72 @@
+name: "tap"
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - "macos-10.15"
+          - "macos-11"
+    runs-on: "${{ matrix.os }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Software versions
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          bundle --version
+          ruby --version
+
+      - name: Create Homebrew tap directory
+        run: |
+          printf '=%.0s' {1..80}; echo
+          echo "brew update"
+          printf '=%.0s' {1..80}; echo
+          brew update
+
+          printf '=%.0s' {1..80}; echo
+          echo "Uninstall conflicting formula - 'bats'"
+          printf '=%.0s' {1..80}; echo
+          brew list bats && brew uninstall bats
+
+          printf '=%.0s' {1..80}; echo
+          echo "Link repository root as installed tap"
+          printf '=%.0s' {1..80}; echo
+          REPO_OWNER="$(echo "${{ github.repository }}" | cut -d'/' -f1)"
+          mkdir -p "$(brew --repo)/Library/Taps/${REPO_OWNER}"
+          ln -s "$(pwd)" "$(brew --repo)/Library/Taps/${{ github.repository }}"
+          brew tap --repair
+
+      - name: Test the tap formulae
+        run: |
+          # Test 'bats-support' formula first as it is listed as a dependency for other formulae
+          printf '=%.0s' {1..80}; echo
+          echo "bats-support: audit and install"
+          printf '=%.0s' {1..80}; echo
+          brew audit "${{ github.repository }}/bats-support"
+          brew install -v "${{ github.repository }}/bats-support"
+
+          # Test other formulae
+          cd "Formula"
+          for p in *.rb; do
+            # Skip 'hecate' as it doesn't work at the moment
+            if [[ $p == "bats-support.rb" || $p == "hecate.rb" ]]; then
+              continue
+            fi
+            pkg="$(echo "$p" | sed -e 's/.rb$//')"
+            printf '=%.0s' {1..80}; echo
+            echo "${pkg}: audit and install"
+            printf '=%.0s' {1..80}; echo
+            brew audit "${{ github.repository }}/${pkg}"
+            brew install -v "${{ github.repository }}/${pkg}"
+          done
