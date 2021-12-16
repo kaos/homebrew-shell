@@ -1,0 +1,48 @@
+name: pull-request
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch.
+  push:
+    branches:
+      - master
+  pull_request:
+    # Note: 'branches' and 'branches-ignore' are target PR branches
+    # https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags
+    # "For a 'pull_request' event, only branches and tags on the base are evaluated."
+    branches:
+      - "*"
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os:
+          - "macos-10.15"
+          - "macos-11"
+    runs-on: "${{ matrix.os }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Software versions
+        run: |
+          bash -c 'echo $BASH_VERSION'
+          ls -n /Applications/ | grep Xcode*
+
+      - name: Create Homebrew tap directory
+        run: |
+          brew update
+          mkdir -p "$(brew --repo)/Library/Taps/${{ github.repository }}"
+          brew tap --repair
+
+      - name: Test the tap
+        run: |
+          for pkg in "Formula"/*; do
+            echo "${pkg}: audit"
+            brew audit "${pkg}"
+            echo "${pkg}: install"
+            brew install -v "${pkg}"
+            echo "${pkg}: test"
+            brew test "${pkg}"
+          done
