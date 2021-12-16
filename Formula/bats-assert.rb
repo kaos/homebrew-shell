@@ -1,9 +1,9 @@
 class BatsAssert < Formula
   desc "Common assertions for Bats"
-  homepage "https://github.com/ztombol/bats-assert"
-  url "https://github.com/ztombol/bats-assert/archive/v0.3.0.tar.gz"
-  sha256 "0d447e4efc488cf06ebed3dea5b55e1fb909e572fb3576434194a09485f8a7f3"
-  head "https://github.com/ztombol/bats-assert.git"
+  homepage "https://github.com/bats-core/bats-assert"
+  url "https://github.com/bats-core/bats-assert/archive/v2.0.0.tar.gz"
+  sha256 "15dbf1abb98db785323b9327c86ee2b3114541fe5aa150c410a1632ec06d9903"
+  head "https://github.com/bats-core/bats-assert.git"
   depends_on "bats-support"
 
   def install
