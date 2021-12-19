@@ -1,0 +1,53 @@
+name: "package"
+
+on:
+  workflow_dispatch:
+
+env:
+  GO_VERSION: "1.17"
+  HECATE_COMMIT: "b639fbfcd4695f6381a2e3d6bd1cd61e44f35bfc"
+
+jobs:
+  hecate:
+    runs-on: "macos-10.15"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+          repository: evanmiller/hecate
+          ref: ${{ env.HECATE_COMMIT }}
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "${{ env.GO_VERSION }}"
+
+      - name: Build
+        run: |
+          GO111MODULE=on \
+          CGO_ENABLED=0 \
+          GOOS=darwin \
+          GOARCH=amd64 \
+          go build -a -trimpath \
+            -ldflags "-s -w -extldflags '-static'" \
+            -tags 'osusergo netgo static_build' \
+            -o ./hecate
+
+      - name: Create release assets
+        run: |
+          RELEASE="$(date +'%F')"
+          echo "RELEASE=${RELEASE}" >> $GITHUB_ENV
+          echo "Release name: ${RELEASE}"
+          tar -zcvf "hecate-${RELEASE}_Darwin_x86_64.tar.gz" ./hecate
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Hecate (${{ env.RELEASE }})
+          draft: false
+          prerelease: false
+          files: |
+            hecate-${RELEASE}_Darwin_x86_64.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

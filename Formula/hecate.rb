@@ -1,7 +1,7 @@
 require "language/go"
 
 class Hecate < Formula
-  desc "The Hex Editor From Hell!"
+  desc "This is 'The Hex Editor From Hell!'"
   homepage "https://github.com/evanmiller/hecate"
   url "https://github.com/evanmiller/hecate.git", revision: "7ca07b25c4204f1366ad68533388f5f7a8f843cd"
   version "2016-04-09"
