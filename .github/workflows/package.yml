@@ -39,11 +39,11 @@ jobs:
           RELEASE="$(date +'%F')"
           echo "RELEASE=${RELEASE}" >> $GITHUB_ENV
           echo "Release name: ${RELEASE}"
-          tar -zcvf "hecate-${RELEASE}_Darwin_x86_64.tar.gz" ./hecate
+          tar -zcvf "./hecate-${RELEASE}_Darwin_x86_64.tar.gz" ./hecate
 
       - name: Upload package
         uses: actions/upload-artifact@v2
         with:
           name: Hecate (${{ env.RELEASE }})
-          path: hecate-${RELEASE}_Darwin_x86_64.tar.gz
+          path: ./hecate-${{ env.RELEASE }}_Darwin_x86_64.tar.gz
           if-no-files-found: error
