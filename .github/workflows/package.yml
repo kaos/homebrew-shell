@@ -34,20 +34,16 @@ jobs:
             -tags 'osusergo netgo static_build' \
             -o ./hecate
 
-      - name: Create release assets
+      - name: Create hecate package
         run: |
           RELEASE="$(date +'%F')"
           echo "RELEASE=${RELEASE}" >> $GITHUB_ENV
           echo "Release name: ${RELEASE}"
           tar -zcvf "hecate-${RELEASE}_Darwin_x86_64.tar.gz" ./hecate
 
-      - name: Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload package
+        uses: actions/upload-artifact@v2
         with:
           name: Hecate (${{ env.RELEASE }})
-          draft: false
-          prerelease: false
-          files: |
-            hecate-${RELEASE}_Darwin_x86_64.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: hecate-${RELEASE}_Darwin_x86_64.tar.gz
+          if-no-files-found: error
