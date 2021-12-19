@@ -59,8 +59,7 @@ jobs:
           # Test other formulae
           cd "Formula"
           for p in *.rb; do
-            # Skip 'hecate' as it doesn't work at the moment
-            if [[ $p == "bats-support.rb" || $p == "hecate.rb" ]]; then
+            if [[ $p == "bats-support.rb" ]]; then
               continue
             fi
             pkg="$(echo "$p" | sed -e 's/.rb$//')"
