@@ -1,8 +1,8 @@
 class Pants < Formula
   desc "Pants shim script, to invoke your local `pants` bootstrap script."
   homepage "https://github.com/kaos/pants-shim"
-  url "https://github.com/kaos/pants-shim/archive/refs/tags/0.1.tar.gz"
-  sha256 "1199a68b1bea2b8b6ded7f0acc4a4c228403e4ab89d517ba585a17d42dcedbce"
+  url "https://github.com/kaos/pants-shim/archive/refs/tags/0.2.tar.gz"
+  sha256 "500cdc7ee6428845cdfa953b7da0eb4f2d044ac5380db6ec525c261308afadee"
   head "https://github.com/kaos/pants-shim.git"
 
   def install
