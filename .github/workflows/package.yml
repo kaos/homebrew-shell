@@ -42,7 +42,7 @@ jobs:
           tar -zcvf "./hecate-${RELEASE}_Darwin_x86_64.tar.gz" ./hecate
 
       - name: Upload package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Hecate (${{ env.RELEASE }})
           path: ./hecate-${{ env.RELEASE }}_Darwin_x86_64.tar.gz
