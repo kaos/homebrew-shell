@@ -46,8 +46,8 @@ brew install bats-file
 
 #### Bats mock
 
-[bats-mock](https://github.com/jasonkarns/bats-mock) by
-[@jasonkarns](https://github.com/jasonkarns)
+[bats-mock](https://github.com/mh182/bats-mock) by
+[@mh182](https://github.com/mh182)
 
 ```shell
 brew install bats-mock
